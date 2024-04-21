@@ -1,0 +1,484 @@
+@prefix : <http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/> .
+
+<http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5#hasPlaneReview
+:hasPlaneReview rdf:type owl:ObjectProperty ;
+                rdfs:domain :Passenger ;
+                rdfs:range :Flight .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasComments
+:hasComments rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain :Passenger ;
+             rdfs:range :Texts .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isPlaneOf
+:isPlaneOf rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain :TypePlane ;
+           rdfs:range :Model ;
+           rdfs:comment "Relate airplane models to their airline company" ;
+           rdfs:label "isPlaneOf" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isRoute
+:isRoute rdf:type owl:ObjectProperty ,
+                  owl:InverseFunctionalProperty ,
+                  owl:SymmetricProperty ,
+                  owl:IrreflexiveProperty ;
+         rdfs:domain :Origin ;
+         rdfs:range :Destination ;
+         rdfs:comment "Indicates if there is a direct connection between destinations" ;
+         rdfs:label "isRoute" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/dateFlown
+:dateFlown rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Passenger ;
+           rdfs:range xsd:dateTime ;
+           rdfs:comment "Date on which the flight occurred" ;
+           rdfs:label "dateFlown" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/dateReview
+:dateReview rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Texts ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Date on which the valuation occurred" ;
+            rdfs:label "dateReview" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/finalValuation
+:finalValuation rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Passenger ;
+                rdfs:range xsd:integer ;
+                rdfs:label "finalValuation" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasActiveRoute
+:hasActiveRoute rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain :Origin ;
+                rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasBadComment
+:hasBadComment rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Passenger ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasComments
+:hasComments rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasGoodComment
+:hasGoodComment rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Passenger ;
+                rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isRecommended
+:isRecommended rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Passenger ;
+               rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isVerified
+:isVerified rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :Passenger ;
+            rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Aircraft
+:Aircraft rdf:type owl:Class ;
+          rdfs:subClassOf :Flight ;
+          rdfs:comment "Aspects related to the plane" ;
+          rdfs:label "Aircraft" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/BusinessLeisure
+:BusinessLeisure rdf:type owl:Class ;
+                 rdfs:subClassOf :Leisure .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/BusinessSeat
+:BusinessSeat rdf:type owl:Class ;
+              rdfs:subClassOf :Seat .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Comment
+:Comment rdf:type owl:Class ;
+         rdfs:subClassOf :Texts ;
+         rdfs:comment "Passenger comment" ;
+         rdfs:label "Comment" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :Passenger ;
+         rdfs:comment "Country to which the passenger belongs" ;
+         rdfs:label "Country" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/CoupleLeisure
+:CoupleLeisure rdf:type owl:Class ;
+               rdfs:subClassOf :Leisure .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Destination
+:Destination rdf:type owl:Class ;
+             rdfs:subClassOf :Flight ;
+             rdfs:comment "Airplane landing destination" ;
+             rdfs:label "Destination" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/EconomySeat
+:EconomySeat rdf:type owl:Class ;
+             rdfs:subClassOf :Seat .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/FamilyLeisure
+:FamilyLeisure rdf:type owl:Class ;
+               rdfs:subClassOf :Leisure .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/FirstSeat
+:FirstSeat rdf:type owl:Class ;
+           rdfs:subClassOf :Seat .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Flight
+:Flight rdf:type owl:Class ;
+        rdfs:comment "Data related to the flight and the plane" ;
+        rdfs:label "Flight" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Leisure
+:Leisure rdf:type owl:Class ;
+         rdfs:subClassOf :Passenger ;
+         rdfs:comment "Type of passenger trip (alone, as a couple, as a family...)" ;
+         rdfs:label "Leisure" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Model
+:Model rdf:type owl:Class ;
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :isPlaneOf ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onClass :TypePlane
+                           ] ;
+       rdfs:subClassOf :Aircraft ;
+       rdfs:comment "Airplane model" ;
+       rdfs:label "Model" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Origin
+:Origin rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :isRoute ;
+                              owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :Destination
+                            ] ;
+        rdfs:subClassOf :Flight ;
+        rdfs:comment "Airplane landing origin" ;
+        rdfs:label "Origin" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Passenger
+:Passenger rdf:type owl:Class ;
+           rdfs:comment "Traveler information" ;
+           rdfs:label "Passenger" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/PremiumSeat
+:PremiumSeat rdf:type owl:Class ;
+             rdfs:subClassOf :Seat .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Seat
+:Seat rdf:type owl:Class ;
+      rdfs:subClassOf :Passenger ;
+      rdfs:comment "Passenger seat type (economy, business, first class)" ;
+      rdfs:label "Seat" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/SoloLeisure
+:SoloLeisure rdf:type owl:Class ;
+             rdfs:subClassOf :Leisure .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Texts
+:Texts rdf:type owl:Class ;
+       rdfs:subClassOf :Passenger ;
+       rdfs:comment "Comments that the passenger leaves about the flight" ;
+       rdfs:label "Texts" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Title
+:Title rdf:type owl:Class ;
+       rdfs:subClassOf :Texts ;
+       rdfs:comment "Passenger comment title" ;
+       rdfs:label "Title" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/TypePlane
+:TypePlane rdf:type owl:Class ;
+           rdfs:subClassOf :Aircraft ;
+           rdfs:comment "Aircraft number and model" ;
+           rdfs:label "TypePlane" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/A319
+:A319 rdf:type owl:NamedIndividual ,
+               :Model ;
+      :isPlaneOf :Airbus .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/A320
+:A320 rdf:type owl:NamedIndividual ,
+               :Model ;
+      :isPlaneOf :Airbus .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Airbus
+:Airbus rdf:type owl:NamedIndividual ,
+                 :TypePlane ;
+        rdfs:sameAs "https://dbpedia.org/page/Airbus" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Andrea
+:Andrea rdf:type owl:NamedIndividual ,
+                 :Passenger ;
+        :hasComments :Andrea ;
+        :dateFlown "2024-04-20T00:00:00"^^xsd:dateTime ;
+        :dateReview "2024-04-21T00:00:00"^^xsd:dateTime ;
+        :finalValuation 10 ;
+        :hasComments "true"^^xsd:boolean ;
+        :isRecommended "true"^^xsd:boolean ;
+        :isVerified "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    :Destination .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Boeing
+:Boeing rdf:type owl:NamedIndividual ,
+                 :TypePlane ;
+        rdfs:sameAs "https://dbpedia.org/page/Boeing" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Boeing_737_800
+:Boeing_737_800 rdf:type owl:NamedIndividual ,
+                         :Model ;
+                :isPlaneOf :Boeing .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Boeing_737_900
+:Boeing_737_900 rdf:type owl:NamedIndividual ,
+                         :Model ;
+                :isPlaneOf :Boeing .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Dublin
+:Dublin rdf:type owl:NamedIndividual ,
+                 :Origin ;
+        :isRoute :Gran_Canaria ;
+        rdfs:sameAs "https://dbpedia.org/page/Dublin" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Faro
+:Faro rdf:type owl:NamedIndividual ,
+               :Origin ;
+      :isRoute :Dublin ;
+      rdfs:sameAs "https://dbpedia.org/page/Faro" .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Gran_Canaria
+:Gran_Canaria rdf:type owl:NamedIndividual ,
+                       :Destination .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Italy
+:Italy rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Madrid
+:Madrid rdf:type owl:NamedIndividual ,
+                 :Destination .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Portugal
+:Portugal rdf:type owl:NamedIndividual ,
+                   :Country .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/RY1
+:RY1 rdf:type owl:NamedIndividual ,
+              :Flight .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Santiago
+:Santiago rdf:type owl:NamedIndividual ,
+                   :Destination .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Spain
+:Spain rdf:type owl:NamedIndividual ,
+                :Country .
+
+
+###  http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Tenerife
+:Tenerife rdf:type owl:NamedIndividual ,
+                   :Origin ;
+          :isRoute :Barcelona ,
+                   :Madrid ,
+                   :Santiago ;
+          rdfs:sameAs "https://dbpedia.org/page/Tenerife" .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#f> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#f2> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#p> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#val> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#$true$> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Passenger ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :finalValuation ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#val>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasComments ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#$true$>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasBadComment ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Passenger ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :finalValuation ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#val>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasComments ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#$true$>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasGoodComment ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#p> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Flight ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#f>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :isRoute ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#f> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#f2>
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasActiveRoute ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#f> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
