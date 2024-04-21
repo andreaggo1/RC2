@@ -1,0 +1,124 @@
+{
+  "@context" : {
+    "Country" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Country"
+    },
+    "TypePlane" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/TypePlane"
+    },
+    "Comment" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Comment"
+    },
+    "Leisure" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Leisure"
+    },
+    "isRecommended" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isRecommended",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "CoupleLeisure" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/CoupleLeisure"
+    },
+    "Title" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Title"
+    },
+    "PremiumSeat" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/PremiumSeat"
+    },
+    "label" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "hasGoodComment" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasGoodComment",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "hasActiveRoute" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasActiveRoute",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "Destination" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Destination"
+    },
+    "Origin" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Origin"
+    },
+    "isRoute" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isRoute",
+      "@type" : "@id"
+    },
+    "Texts" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Texts"
+    },
+    "BusinessSeat" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/BusinessSeat"
+    },
+    "dateReview" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/dateReview",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "hasComments" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasComments",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "Model" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Model"
+    },
+    "Passenger" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Passenger"
+    },
+    "Seat" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Seat"
+    },
+    "FamilyLeisure" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/FamilyLeisure"
+    },
+    "isVerified" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isVerified",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "Aircraft" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Aircraft"
+    },
+    "finalValuation" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/finalValuation",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "EconomySeat" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/EconomySeat"
+    },
+    "hasPlaneReview" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasPlaneReview",
+      "@type" : "@id"
+    },
+    "Flight" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/Flight"
+    },
+    "hasBadComment" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/hasBadComment",
+      "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
+    },
+    "BusinessLeisure" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/BusinessLeisure"
+    },
+    "sameAs" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#sameAs"
+    },
+    "isPlaneOf" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/isPlaneOf",
+      "@type" : "@id"
+    },
+    "comment" : {
+      "@id" : "http://www.w3.org/2000/01/rdf-schema#comment"
+    },
+    "SoloLeisure" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/SoloLeisure"
+    },
+    "FirstSeat" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/FirstSeat"
+    },
+    "dateFlown" : {
+      "@id" : "http://www.semanticweb.org/andreagareagonzalez/ontologies/2024/3/untitled-ontology-5/dateFlown",
+      "@type" : "http://www.w3.org/2001/XMLSchema#dateTime"
+    }
+  }
+}
